@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.taskmanager.entities.ParentTask;
-import com.taskmanager.entities.Task;
 import com.taskmanager.repository.ParentTaskRepository;
 import com.taskmanager.ui.WorkOut;
 import com.taskmanager.utility.TaskManagerUtility;

@@ -9,6 +9,7 @@ import { ViewlistWorkoutComponent } from './components/viewlist-workout/viewlist
 import {WorkOutService} from './services/work-out.service';
 import {Ng2SliderComponent} from 'ng2-slider-component/ng2-slider.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { SearchTaskPipe } from './pipes/searchTask.pipe';
 
 
 
@@ -33,6 +34,7 @@ const routes: Routes = [
   ],
   providers: [WorkOutService],
   exports: [ RouterModule ],
-  declarations: [ViewlistWorkoutComponent,WorkoutsComponent,AddWorkoutComponent]
+  declarations: [ViewlistWorkoutComponent,SearchTaskPipe,
+    WorkoutsComponent,AddWorkoutComponent]
 })
 export class AppRoutingModule { }

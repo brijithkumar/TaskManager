@@ -7,33 +7,39 @@
 <div class="form-group row">
     <label for="task" class="col-form-label">Task</label>
     <div class="col-sm-5">
-      <input type="search" #task (keyup)="0"  class="form-control" id="task" />
+     
+      <input type="search" [(ngModel)]="taskSearch" class="form-control"/>
     </div>
     <label for="parentTask" class="col-form-label">Parent task</label>
     <div class="col-sm-5">
-      <input type="search" #parentTask (keyup)="0"  class="form-control" id="parentTask" />
+    
+     <input type="search" [(ngModel)]="parentTaskSearch" class="form-control"/>
     </div>
   </div>
 
   <div class="form-group row">
       <label for="priortyFrom" class="col-form-label">Priorty from</label>
       <div class="col-sm-2">
-        <input type="search" #priortyFrom (keyup)="0"  class="form-control" id="priortyFrom" />
+        <input type="search"   [(ngModel)]="priorityFromSearch"
+        class="form-control" id="priortyFrom" />
       </div>
     
       <label for="priortyTo" class="col-form-label">Priorty to</label>
       <div class="col-sm-2">
-        <input type="search" #priortyTo (keyup)="0"  class="form-control" id="priortyTo" />
+        <input type="search"  [(ngModel)]="priorityToSearch"
+        class="form-control" id="priortyTo" />
       </div>
 
       <label for="startDate" class="col-form-label">Start date</label>
       <div class="col-sm-2">
-        <input type="search" #startDate (keyup)="0"  class="form-control" id="startDate" />
+        <input type="search"  [(ngModel)]="startDateSearch"
+        class="form-control" id="startDate" />
       </div>
     
       <label for="endDate" class=" col-form-label">End date</label>
       <div class="col-sm-2">
-        <input type="search" #endDate (keyup)="0"  class="form-control" id="endDate" />
+        <input type="search" [(ngModel)]="endDateSearch"
+         class="form-control" id="endDate" />
       </div>
 
     </div> 
@@ -51,7 +57,8 @@
       </tr>
     </thead>
     <tbody>
-            <tr *ngFor="let workout of workouts">
+            <tr *ngFor="let workout of workouts | 
+            searchtasks: taskSearch:parentTaskSearch:priorityFromSearch:priorityToSearch">
                 <td>{{workout.task}}</td>
                 <td>{{workout.parentTask}}</td>
                 <td>{{workout.priority}}</td>
