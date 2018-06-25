@@ -15,9 +15,10 @@ public class TaskmanagerServiceImpl implements TaskManagerService{
 	ParentTaskRepository parentTaskRepository;
 	
 	@Override
-	public void saveTaskDetails(WorkOut workOut) {
+	public ParentTask saveTaskDetails(WorkOut workOut) {
 		ParentTask parentTask=TaskManagerUtility.copyUIObjectToEntity(workOut);
 		parentTaskRepository.save(parentTask);
+		return parentTask;
 	}
 
 

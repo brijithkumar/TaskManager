@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class WorkOut {
 
+	public int id;
 	public String task;
 	public String parentTask;
 	public int priority;
@@ -48,6 +49,13 @@ public class WorkOut {
 		this.parentTask = parentTask;
 	}
 	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	
+
 	
 }

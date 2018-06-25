@@ -90,4 +90,8 @@
    <!-- </div>-->
       
       <button type="submit" class="btn btn-primary" [disabled]="!myForm.valid">Add Workout</button>
-  <form>
+    </form>
+<br/>
+    <div *ngIf="statusCode === 201" [ngClass] = "'success'">
+        Article added successfully.
+      </div> 

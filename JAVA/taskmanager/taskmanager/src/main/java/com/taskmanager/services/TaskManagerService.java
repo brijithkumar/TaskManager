@@ -1,9 +1,10 @@
 package com.taskmanager.services;
 
+import com.taskmanager.entities.ParentTask;
 import com.taskmanager.ui.WorkOut;
 
 public interface TaskManagerService {
 
-	void saveTaskDetails(WorkOut workOut);
+	ParentTask saveTaskDetails(WorkOut workOut);
 
 }

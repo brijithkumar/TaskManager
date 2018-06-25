@@ -52,14 +52,14 @@ export class AddWorkoutComponent implements OnInit {
 	       return; //Validation failed, exit from method.
 	  }   
 	  //Form is valid, now perform create or update
-         
+    let id=0;
 	  let task = this.myForm.get('task').value.trim();
     let parentTask = this.myForm.get('parentTask').value.trim();
     let priority = this.myForm.get('priority').value;	 
     let startDate= this.myForm.get('startDate') .value;
     let endDate= this.myForm.get('endDate') .value;
 	    //Handle create article
-      let workOut= new WorkOut(task, parentTask,priority,startDate,
+      let workOut= new WorkOut(id,task,parentTask,priority,startDate,
       endDate);	  
 	    this.workOutService.addWorkOut(workOut)
 	      .subscribe(successCode => {
