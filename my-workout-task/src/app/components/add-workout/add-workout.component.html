@@ -14,7 +14,8 @@
             <input formControlName="task" 
             class="form-control"  id="task"
             name="task">
-            <!--<small *ngIf="!myForm.controls['workOut'].controls['task'].valid">Task is required!!</small>-->
+            <small *ngIf="!myForm.controls['task'].valid">
+                Task is required!!</small>
           </div>
           <div class="form-group">
               <label for="parentTask">Parent task</label>
@@ -35,61 +36,38 @@
             
               <div class="form-group">
                   <label for="priority">Priority</label>
-                 <!-- <input type="text"
-                        class="form-control"
-                        id="priority"
-                        name="priority"
-                        formControlName = "priority"
-                  />
-                  <small *ngIf="!myForm.controls['workOut'].controls['priority'].valid">Priority!!</small>
-                 -->
+                
                  <div class="slidecontainer">
                     <input type="range" min="1" max="30" value="20" 
                     class="slider" id="myRange" formControlName="priority">
                   </div>
-                </div> 
-          <!--  <div class="form-group">
-             <label for="priority">Priority</label>
-                <div class="slidecontainer">
-                  <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-                </div>
-            </div>-->
+                </div>         
 
                 <div class="form-group">
                     <label for="startDate">Start date</label>
-                 <!--    <input type="text"
-                          class="form-control"
-                          id="startDate"
-                          name="startDate"
-                          formControlName = "startDate"
-                    />
-                    <small *ngIf="!myForm.controls['workOut'].controls['startDate'].valid">Start date!!</small>
-                    -->
+                    
                     <input  formControlName="startDate" 
                     class="form-control"  id="startDate"
-                    name="startDate" placeholder="dd-mm-yyyy"> 
+                    name="startDate" placeholder="dd-mm-yyyy">
+                    <small *ngIf="!myForm.
+                    controls['startDate'].valid">Start date!!</small> 
                   </div>
 
                   
 
                   <div class="form-group">
                       <label for="endDate">End date</label>
-                    <!--  <input type="text"
-                            class="form-control"
-                            id="endDate"
-                            name="endDate"
-                            formControlName = "endDate"
-                      />
-                      <small *ngIf="!myForm.controls['workOut'].controls['endDate'].valid">End date!!</small>
-                    -->
+                   
                     <input formControlName="endDate" 
                     class="form-control"  id="endDate"
                     name="endDate" placeholder="dd-mm-yyyy"> 
+                    <small *ngIf="!myForm.
+                    controls['endDate'].valid">End date!!</small>
                     </div>
            
    <!-- </div>-->
       
-      <button type="submit" class="btn btn-primary" [disabled]="!myForm.valid">Add Workout</button>
+      <button type="submit" class="btn btn-primary" [disabled]="!myForm.valid">Add Task</button>
     </form>
 <br/>
     <div *ngIf="statusCode === 201" [ngClass] = "'success'">
