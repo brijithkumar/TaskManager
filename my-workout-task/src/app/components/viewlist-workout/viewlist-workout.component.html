@@ -58,7 +58,8 @@
     </thead>
     <tbody>
             <tr *ngFor="let workout of workouts | 
-            searchtasks: taskSearch:parentTaskSearch:priorityFromSearch:priorityToSearch">
+            searchtasks: taskSearch:parentTaskSearch:priorityFromSearch:
+            priorityToSearch:startDateSearch:endDateSearch">
                 <td>{{workout.task}}</td>
                 <td>{{workout.parentTask}}</td>
                 <td>{{workout.priority}}</td>
