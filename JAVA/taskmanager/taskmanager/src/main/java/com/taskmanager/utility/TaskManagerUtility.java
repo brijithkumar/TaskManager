@@ -4,6 +4,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import com.taskmanager.entities.ParentTask;
 import com.taskmanager.entities.Task;
@@ -11,8 +12,9 @@ import com.taskmanager.ui.WorkOut;
 
 public class TaskManagerUtility {
 	
+	private static final DateFormat sourceFormat = new SimpleDateFormat("dd-MM-yyyy");
+	
 public static Date stringtoDateConverter(String dateAsString) {
-	DateFormat sourceFormat = new SimpleDateFormat("dd-MM-yyyy");
 	Date date = null;
 	try {
 		date = sourceFormat.parse(dateAsString);
@@ -21,6 +23,12 @@ public static Date stringtoDateConverter(String dateAsString) {
 		e.printStackTrace();
 	}
 	return date;
+}
+
+public static String dateToStringConverter(Date date) {
+	String dateAsString = null;
+	dateAsString = sourceFormat.format(date);
+	return dateAsString;
 }
 
 public static ParentTask copyUIObjectToEntity(WorkOut workOut) {
@@ -35,6 +43,22 @@ public static ParentTask copyUIObjectToEntity(WorkOut workOut) {
 	parentTask.getTasks().add(task);
 	return parentTask;
 	
+}
+
+public static void copyEntityToUiObject(List<WorkOut> workOuts, List<ParentTask> taskEntities) {
+	for(ParentTask parentTask:taskEntities) {
+		WorkOut workOut=new WorkOut();
+		workOut.setId(parentTask.getId());
+		workOut.setParentTask(parentTask.getName());
+		for(Task task:parentTask.getTasks()) {
+			workOut.setTask(task.getName());
+			workOut.setPriority(task.getPriority());
+			workOut.setStartDate(dateToStringConverter(task.getStartDate()));
+			workOut.setEndDate(dateToStringConverter(task.getEndDate()));
+			workOuts.add(workOut);
+		}
+		
+	}
 }
 
 }

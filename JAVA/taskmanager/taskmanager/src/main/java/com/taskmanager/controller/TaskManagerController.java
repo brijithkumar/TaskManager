@@ -1,10 +1,13 @@
 package com.taskmanager.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -30,6 +33,15 @@ public class TaskManagerController {
 		headers.setLocation(builder.path("/?id={id}").buildAndExpand(parentTask.getId()).toUri());
 		return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
 	}
+	
+	@GetMapping(value="/getTaskDetails")
+	public ResponseEntity<List<WorkOut>> getAllWorkOuts() {
+		List<WorkOut> list = taskManagerService.getAllWorkOuts();
+		return new ResponseEntity<List<WorkOut>>(list, HttpStatus.OK);
+	}
+	
+	//
+	
 
 
 }

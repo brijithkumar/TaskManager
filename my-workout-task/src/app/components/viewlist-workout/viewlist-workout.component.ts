@@ -8,15 +8,20 @@ import {WorkOut} from '../../entities/workout';
   styleUrls: ['./viewlist-workout.component.css']
 })
 export class ViewlistWorkoutComponent implements OnInit {
+  allWorkOuts: WorkOut[];
+  statusCode: any;
 
   constructor(private workOutService:WorkOutService) { }
   workouts:Array<WorkOut>;
   ngOnInit() {
-   /** this.workOutService.getWorkOuts()
-    .then((res) =>  res.json())
-    .then((workouts) => {
-      this.workouts = workouts.data;
-      })*/
+      this.getAllArticles();
   }
+
+  getAllArticles() {
+    this.workOutService.getAllArticles()
+    .subscribe(
+            data => this.workouts = data,
+            errorCode =>  this.statusCode = errorCode);   
+}
 
 }

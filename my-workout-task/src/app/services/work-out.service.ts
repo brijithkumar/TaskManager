@@ -31,7 +31,20 @@ export class WorkOutService {
           return this.http.post(this.baseUrl + 'saveTaskDetails', workout, options)
                  .map(success => success.status)
                  .catch(this.handleError);
-      }	
+      }
+      
+  getAllArticles(): Observable<WorkOut[]> {
+        return this.http.get(this.baseUrl + 'getTaskDetails')
+         .map(this.extractData)
+         .catch(this.handleError);
+  
+    }
+  
+  private extractData(res: Response | any) {
+      let body = res.json();
+            return body;
+        }
+
       
   private handleError (error: Response | any) {
        // console.error(error.message || error);
