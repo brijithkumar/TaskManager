@@ -1,0 +1,93 @@
+<h4>{{message}}</h4>
+
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+    <!--<div formGroupName="workOut">-->
+        <div class="form-group">
+            <label for="task">Task</label>
+            <!--<input type="text"
+                  class="form-control"
+                  id="task"
+                  name="task"
+                  formControlName = "task"
+                
+            >-->
+            <input formControlName="task" 
+            class="form-control"  id="task"
+            name="task">
+            <!--<small *ngIf="!myForm.controls['workOut'].controls['task'].valid">Task is required!!</small>-->
+          </div>
+          <div class="form-group">
+              <label for="parentTask">Parent task</label>
+             <!-- <input type="text"
+                    class="form-control"
+                    id="parentTask"
+                    name="parentTask"
+                    formControlName = "parentTask"
+                   
+              />
+              <small *ngIf="!myForm.controls['workOut'].controls['parentTask'].valid">Parent Task!!</small>-->
+              <input formControlName="parentTask" 
+              class="form-control"  id="parentTask"
+              name="parentTask">
+            </div>
+
+          
+            
+              <div class="form-group">
+                  <label for="priority">Priority</label>
+                 <!-- <input type="text"
+                        class="form-control"
+                        id="priority"
+                        name="priority"
+                        formControlName = "priority"
+                  />
+                  <small *ngIf="!myForm.controls['workOut'].controls['priority'].valid">Priority!!</small>
+                 -->
+                 <div class="slidecontainer">
+                    <input type="range" min="1" max="30" value="20" 
+                    class="slider" id="myRange" formControlName="priority">
+                  </div>
+                </div> 
+          <!--  <div class="form-group">
+             <label for="priority">Priority</label>
+                <div class="slidecontainer">
+                  <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+                </div>
+            </div>-->
+
+                <div class="form-group">
+                    <label for="startDate">Start date</label>
+                 <!--    <input type="text"
+                          class="form-control"
+                          id="startDate"
+                          name="startDate"
+                          formControlName = "startDate"
+                    />
+                    <small *ngIf="!myForm.controls['workOut'].controls['startDate'].valid">Start date!!</small>
+                    -->
+                    <input  formControlName="startDate" 
+                    class="form-control"  id="startDate"
+                    name="startDate" placeholder="dd-mm-yyyy"> 
+                  </div>
+
+                  
+
+                  <div class="form-group">
+                      <label for="endDate">End date</label>
+                    <!--  <input type="text"
+                            class="form-control"
+                            id="endDate"
+                            name="endDate"
+                            formControlName = "endDate"
+                      />
+                      <small *ngIf="!myForm.controls['workOut'].controls['endDate'].valid">End date!!</small>
+                    -->
+                    <input formControlName="endDate" 
+                    class="form-control"  id="endDate"
+                    name="endDate" placeholder="dd-mm-yyyy"> 
+                    </div>
+           
+   <!-- </div>-->
+      
+      <button type="submit" class="btn btn-primary" [disabled]="!myForm.valid">Add Workout</button>
+  <form>
